@@ -1,0 +1,22 @@
+<div class="container page-top">
+    <div class="row">
+        <button type="button" id="text" class="btn btn-primary">Text Input</button>
+        <button type="button" id="select" class="btn btn-success">Select</button>
+        <button type="button" id="label" class="btn btn-info">Label</button>
+    </div>
+    <small id="inputTagHelp" class="form-text text-muted">Click on the buttons above to add these form elements to your list. Then generate the code using the button below.</small>
+    <div class="row">
+        <form action="/" id="elementsForm" method="post">
+            <div class="form-group">
+                <label for="inputTags">Form Elements</label>
+                <ul id="formOptionsChosen">
+                </ul>
+            </div>
+            <button type="submit" class="btn btn-success">Generate Form Elements</button>
+        </form>
+    </div>
+    <div class="row">
+        <label for="results"></label>
+        <div id="result"></div>
+    </div>
+</div>
