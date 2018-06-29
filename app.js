@@ -25,7 +25,6 @@ const server = http.createServer((req, res) => {
             let items = [];
             let html = '';
             let i = 0;
-            let j = 0;
             
             //Loop through the data object and add the values for "type" to the items array
             data.forEach(function() {
@@ -34,10 +33,10 @@ const server = http.createServer((req, res) => {
             });
             
             //Create loop to convert to html
-            items.forEach(function() {
+            items.forEach(function(item) {
                 let element = "";
                 //Create switch statement for values
-                switch (items[j]) {
+                switch (item) {
                     case "button":
                         element = "<button></button>";
                         break;
@@ -83,7 +82,6 @@ const server = http.createServer((req, res) => {
                 
                 //Add to the html string
                 html += element;
-                j++; //increment counter var
             })
             
             //Output the final results
