@@ -9,25 +9,27 @@ router.get('/', function(req, res, next) {
 /* POST home page */
 router.post('/', function(req, res, next) {
 
+  //Get the elements sent to the POST command from the post body
   let elements = req.body['elements[]'];
 
   let returnedString = "";
 
   //Each element should be converted to proper HTML code
   elements.forEach(element => {
-    if(element === "text") {
-      returnedString = returnedString + '<input type="text" placeholder="Text Element" />'
-    }
 
-    if(element === "select") {
-      returnedString = returnedString + '<select><option>Option 1</option><option>Option 2</option><option>Option 3</option>'
-    }
+    let fixedElement = element.toLowerCase();
 
-    if(element === "label") {
-      returnedString = returnedString + '<label for="yourElementName">Label: </label>'
+    switch(fixedElement) {
+      case "text":
+        returnedString = returnedString + '<input type="text" placeholder="Text Element" />'
+      case "select":
+        returnedString = returnedString + '<select><option>Option 1</option><option>Option 2</option><option>Option 3</option>'
+      case "label":
+        returnedString = returnedString + '<label for="yourElementName">Label: </label>'
     }
   });
   
+  //Add header to prevent browsers from throwing "malformed" error.
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end(returnedString);
   

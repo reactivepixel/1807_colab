@@ -8,6 +8,8 @@ function generateList() {
 }
 
 $(document).ready(function () {
+    
+    //Button events for adding form elements to the formInputsArray
     $("#text").on("click", function () {
         formInputsArray.push("text")
         generateList();
@@ -26,9 +28,12 @@ $(document).ready(function () {
 
     //Submit form AJAX-style and work with results.
     $("#elementsForm").submit(function (event) {
+        //Stop form from submitting and use jQuery to POST the formInputsArray object instead
         event.preventDefault();
+        
         let postMethod = $.post("/", { elements: formInputsArray })
 
+        //Once the post is done, work with returned data.
         postMethod.done(function (data) {
             $("#result").html();
             $("#result").text(data);
