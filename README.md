@@ -17,7 +17,7 @@ __To use this application simply follow these instructions.__
 * Clone this repository to receive the *app.js* and *array.json* files.
 * Install the above technologies (npm & Nodejs).
 * Navigate to the folder you saved the files to in your terminal or cmd.
-* Type `node app.js` in your terminal or cmd to start the server.
+* Type `node app/app.js` in your terminal or cmd to start the server.
 * Open your browser and navigate to [http://127.0.0.1:3000/](http://127.0.0.1:3000/).
   * The server or port can be changed within the app.js file on lines 3 and 4
 * The files will automatically run and display the html on the page.
@@ -33,7 +33,7 @@ This application is reusable and will convert any number of items into valid htm
   * __Input fields can be defined using their input types. Example: For a email input field you would do `{'type':'email'}`__
 * Save the changes.
 * Exit out of the server from the terminal or cmd.
-* Run `node app.js` once again.
+* Run `node app/app.js` once again.
 * Refresh the browser and you will see your changes.
 
 ## Style Guide
