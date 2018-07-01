@@ -1,0 +1,29 @@
+{
+  "name": "form-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/app.js",
+  "engines": {
+    "node": "v8.4.0",
+    "npm": "5.4.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "Toby Horn - tjhorn@student.fullsail.edu",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "eslint-config-airbnb-standard": "^1.4.1",
+    "mocha": "^5.2.0",
+    "mocha-eslint": "^4.1.0",
+    "path.join": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.10.0"
+  }
+}
