@@ -35,3 +35,51 @@ This application is reusable and will convert any number of items into valid htm
 * Exit out of the server from the terminal or cmd.
 * Run `node app.js` once again.
 * Refresh the browser and you will see your changes.
+
+## Style Guide
+This application adhears to the DWA Style Guide, which is built upon the AirBnB JavaScript style guide. To use the style guide make sure you have the following technologies.
+* [NPM](https://docs.npmjs.com/getting-started/installing-node)
+* [Mocha](https://mochajs.org/#installation)
+  * `npm install --global mocha`
+* [Chai](http://www.chaijs.com/guide/installation/#nodejs)
+  * `npm install chai`
+* [ESLint](https://eslint.org/docs/user-guide/getting-started) - Installed locally
+  * Install ESLint
+  `npm install esling --save-dev`
+  * Then initialize the file
+  `./node_modules/.bin/eslint --init`
+  * Copy contents from [Max Bot's eslint file](https://github.com/reactivepixel/Max-Bot/blob/dev/test/__eslint.js) to your own __eslint.js_ file
+    * Change the _'bot'_ to match the path(s) to your files.
+  * Ensure that your local .eslintrc.json file has the following configurations
+    ```JSON
+    {
+      "env": {
+          "node": true,
+          "mocha": true
+      },
+      "extends": "airbnb",
+      "plugins": [],
+      "rules": {
+          "new-cap": 0,
+          "prefer-template": 0,
+          "global-require": 0,
+          "no-unused-expressions": 0,
+          "no-underscore-dangle": 0,
+          "import/no-dynamic-require": 0,
+          "no-shadow": 0,
+          "no-else-return": 0
+      },
+      "globals": {
+          "describe": true,
+          "it": true
+      }
+	}
+    ```
+#### Performing Lints
+To perform a lint follow these instructions.
+* cd to your application folder in your terminal/cmd
+* Run `npm test`
+
+# Author
+* Toby Horn - Developer - Full Sail University
+  
