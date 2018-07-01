@@ -21,6 +21,34 @@ Start the web server by running:
 
 Navigate your browser to `http://localhost:3000` to interact with the tool
 
+# Test Environment
+
+This project incorporates the "DWA Style Guide". This style guide can be tested to make sure the code adheres to the style guide correctly.
+
+## Configure
+
+To configure the testing environment, install mocha and chai using the following commands:
+
+`npm install chai`
+`npm install mocha -g`
+
+Next, install the eslint requirements:
+
+`npm install mocha-eslint`
+`npm install eslint-config-airbnb`
+
+All dependencies of eslint-config-airbnb must also be installed. To do that, run the following command:
+
+`npx install-peerdeps eslint-config-airbnb`
+
+## Run Tests
+
+To run all tests, navigate to the root folder of the project and run the following command:
+
+`npm test`
+
+This project currently contains no issues so every test should pass.
+
 ## Built With
 
 * [NodeJS](https://nodejs.org/)
