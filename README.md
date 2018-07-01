@@ -45,7 +45,7 @@ This application adhears to the DWA Style Guide, which is built upon the AirBnB 
   * `npm install chai`
 * [ESLint](https://eslint.org/docs/user-guide/getting-started) - Installed locally
   * Install ESLint
-  `npm install esling --save-dev`
+  `npm install eslint --save-dev`
   * Then initialize the file
   `./node_modules/.bin/eslint --init`
   * Copy contents from [Max Bot's eslint file](https://github.com/reactivepixel/Max-Bot/blob/dev/test/__eslint.js) to your own __eslint.js_ file
