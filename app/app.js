@@ -22,13 +22,7 @@ const server = http.createServer((req, res) => {
         return res.write('There was an error reading the JSON file');
       }
 
-      const items = [];
       let html = '';
-
-      //  Loop through the data object and add each object to the items array
-      parsedData.forEach((index) => {
-        items.push(index);
-      });
 
       // Create function for conditional check for element attributes
       function attrChecks(item) {
@@ -87,7 +81,7 @@ const server = http.createServer((req, res) => {
       }
 
       //  Create loop to convert to html
-      items.forEach((item) => {
+      parsedData.forEach((item) => {
         //  Create switch statement for elements
         switch (item.element) {
           case 'label':
