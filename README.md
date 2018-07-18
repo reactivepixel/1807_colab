@@ -28,9 +28,8 @@ This application is reusable and will convert any number of items into valid htm
 
 * Open the *array.json* file.
 * Change/Add/Remove any item(s) as needed to match existing ones.
-  * __Must be a valid JSON object. Example: `[{'type':'number'}]`__
-  * __Must also follow the same key/value schema. Example: `type:html_element`__
-  * __Input fields can be defined using their input types. Example: For a email input field you would do `{'type':'email'}`__
+  * __Must be a valid JSON object.__ Example: `[{'element':'number', 'name':'phone'}]`
+  * __Must also follow the same key/value schema.__ Example: `element:html_element` or `attribute:attribute_value`
 * Save the changes.
 * Exit out of the server from the terminal or cmd.
 * Run `node app/app.js` once again.
@@ -38,6 +37,7 @@ This application is reusable and will convert any number of items into valid htm
 
 ## Style Guide
 This application adhears to the DWA Style Guide, which is built upon the AirBnB JavaScript style guide. To use the style guide make sure you have the following technologies.
+
 * [NPM](https://docs.npmjs.com/getting-started/installing-node)
 * [Mocha](https://mochajs.org/#installation)
   * `npm install --global mocha`
@@ -48,35 +48,10 @@ This application adhears to the DWA Style Guide, which is built upon the AirBnB 
   `npm install eslint --save-dev`
   * Then initialize the file
   `./node_modules/.bin/eslint --init`
-  * Copy contents from [Max Bot's eslint file](https://github.com/reactivepixel/Max-Bot/blob/dev/test/__eslint.js) to your own __eslint.js_ file
-    * Change the _'bot'_ to match the path(s) to your files.
-  * Ensure that your local .eslintrc.json file has the following configurations
-    ```JSON
-    {
-      "env": {
-          "node": true,
-          "mocha": true
-      },
-      "extends": "airbnb",
-      "plugins": [],
-      "rules": {
-          "new-cap": 0,
-          "prefer-template": 0,
-          "global-require": 0,
-          "no-unused-expressions": 0,
-          "no-underscore-dangle": 0,
-          "import/no-dynamic-require": 0,
-          "no-shadow": 0,
-          "no-else-return": 0
-      },
-      "globals": {
-          "describe": true,
-          "it": true
-      }
-	}
-    ```
+  
 #### Performing Lints
 To perform a lint follow these instructions.
+
 * cd to your application folder in your terminal/cmd
 * Run `npm test`
 

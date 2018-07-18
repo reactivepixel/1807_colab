@@ -1,7 +1,6 @@
 const http = require('http');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const port = process.env.port || 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
@@ -15,8 +14,9 @@ const server = http.createServer((req, res) => {
 
     //  Read the file
     fs.readFile(arrayPath, (err, data) => {
-      //  Parse the data and create variables to be used
+      //  Parse the data
       const parsedData = JSON.parse(data);
+
       //  If an error occurs log it
       if (err) {
         return res.write('There was an error reading the JSON file');
@@ -25,62 +25,120 @@ const server = http.createServer((req, res) => {
       const items = [];
       let html = '';
 
-      //  Loop through the data object and add the values for "type" to the items array
-      parsedData.forEach((item) => {
-        items.push(item.type.toLowerCase());
+      //  Loop through the data object and add each object to the items array
+      parsedData.forEach((index) => {
+        items.push(index);
       });
+
+      // Create function for conditional check for element attributes
+      function attrChecks(item) {
+        if (item.type !== undefined) {
+          html += ` type="${item.type}"`;
+        }
+        if (item.class !== undefined) {
+          html += ` class="${item.class}"`;
+        }
+        if (item.id !== undefined) {
+          html += ` id="${item.id}"`;
+        }
+        if (item.name !== undefined) {
+          html += ` name="${item.name}"`;
+        }
+        if (item.for !== undefined) {
+          html += ` for="${item.for}"`;
+        }
+        if (item.method !== undefined) {
+          html += ` method="${item.method}"`;
+        }
+        if (item.action !== undefined) {
+          html += ` action="${item.action}"`;
+        }
+        if (item.value !== undefined) {
+          html += ` value="${item.value}"`;
+        }
+        if (item.placeholder !== undefined) {
+          html += ` placeholder="${item.placeholder}"`;
+        }
+        if (item.src !== undefined) {
+          html += ` src="${item.src}"`;
+        }
+        if (item.alt !== undefined) {
+          html += ` alt="${item.alt}"`;
+        }
+        if (item.accept !== undefined) {
+          html += ` accept="${item.accept}"`;
+        }
+        if (item.required !== undefined) {
+          html += ' required';
+        }
+        if (item.readonly !== undefined) {
+          html += ' readonly';
+        }
+        if (item.multiple !== undefined) {
+          html += ' multiple';
+        }
+      }
+
+      // Create function for value check for elements
+      function textCheck(item) {
+        if (item.text !== undefined) {
+          html += item.text;
+        }
+      }
 
       //  Create loop to convert to html
       items.forEach((item) => {
-        let element = '';
-
-        //  Create switch statement for values
-        switch (item) {
-          case 'button':
-            element = '<button></button>';
-            break;
-          case 'select':
-            element = '<select></select>';
-            break;
-          case 'option':
-            element = '<label></label>';
-            break;
-          case 'form':
-            element = '<form></form>';
-            break;
+        //  Create switch statement for elements
+        switch (item.element) {
           case 'label':
-            element = '<label></label>';
+            html += '<label'; // Opening html tag
+            attrChecks(item); // Call attribute checker method
+            html += '>'; // Closing caret
+            textCheck(item); // Call text checker method
+            html += '</label>'; // Closing html tag
             break;
-          case 'textarea':
-            element = '<textarea></textarea>';
+
+          case 'input':
+            html += '<input';
+            attrChecks(item);
+            html += '>';
             break;
-          case 'text':
-            element = '<input type="text"/>';
+
+          case 'button':
+            html += '<button';
+            attrChecks(item);
+            html += '>';
+            textCheck(item);
+            html += '</button>';
             break;
-          case 'file':
-            element = '<input type="file"/>';
+
+          case 'select':
+            html += '<select';
+            attrChecks(item);
+            html += '>';
+            textCheck(item);
+            html += '</select>';
             break;
-          case 'image':
-            element = '<input type="image"/>';
+
+          case 'option':
+            html += '<option';
+            attrChecks(item);
+            html += '>';
+            textCheck(item);
+            html += '</option>';
             break;
-          case 'number':
-            element = '<input type="number"/>';
+
+          case 'form':
+            html += '<form';
+            attrChecks(item);
+            html += '>';
+            textCheck(item);
+            html += '</form>';
             break;
-          case 'radio':
-            element = '<input type="radio"/>';
-            break;
-          case 'tel':
-            element = '<input type="tel"/>';
-            break;
-          case 'url':
-            element = '<input type="url"/>';
-            break;
+
           default:
             break;
         }
-
-        //  Add to the html string
-        html += element;
       });
 
       //  Output the final results
@@ -93,4 +151,4 @@ const server = http.createServer((req, res) => {
   toHTML();
 });
 
-server.listen(port, hostname);
+server.listen(port);

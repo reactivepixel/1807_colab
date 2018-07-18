@@ -1,1 +1,9 @@
-[{"type":"tEXt"},{"type":"select"},{"type":"button"},{"type":"form"},{"type":"label"},{"type":"email"}, {"type":"button"}]
+[
+  {"element":"input", "type":"text", "name":"username", "class":"input-field"},
+  {"element":"select", "id":"select", "name":"select"},
+  {"element":"button", "type":"submit"},
+  {"element":"form", "method":"get", "action":"/example"},
+  {"element":"label", "for":"username"},
+  {"element":"input", "type":"email", "name":"email"},
+  {"element":"button", "text":"Login"}
+]
