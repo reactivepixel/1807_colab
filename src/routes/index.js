@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const HTTP_OK = 200;
+
 /* GET home page. */
 router.get('/', (_, res) => {
   res.render('index', {
@@ -35,7 +37,7 @@ router.post('/', (req, res) => {
   });
 
   // Add header to prevent browsers from throwing "malformed" error.
-  res.writeHead(200, {
+  res.writeHead(HTTP_OK, {
     'Content-Type': 'text/plain',
   });
   res.end(returnedString);
